@@ -4,11 +4,11 @@
 # -*- encoding: utf-8 -*-
 
 Gem::Specification.new do |s|
-  s.name = %q{supermodel}
-  s.version = "0.1.4"
+  s.name = %q{csun-student-affairs-supermodel}
+  s.version = "0.1.5"
 
   s.required_rubygems_version = Gem::Requirement.new(">= 0") if s.respond_to? :required_rubygems_version=
-  s.authors = ["Alex MacCaw"]
+  s.authors = ["Alex MacCaw", "Mani Tadayon"]
   s.date = %q{2010-08-30}
   s.description = %q{In memory DB using ActiveModel}
   s.email = %q{info@eribium.org}
@@ -37,7 +37,7 @@ Gem::Specification.new do |s|
      "lib/supermodel/validations/uniqueness.rb",
      "supermodel.gemspec"
   ]
-  s.homepage = %q{http://github.com/maccman/supermodel}
+  s.homepage = %q{https://github.com/csun-student-affairs/supermodel}
   s.rdoc_options = ["--charset=UTF-8"]
   s.require_paths = ["lib"]
   s.rubygems_version = %q{1.3.7}
@@ -56,4 +56,3 @@ Gem::Specification.new do |s|
     s.add_dependency(%q<activemodel>, ["~> 3.0.0"])
   end
 end
-
