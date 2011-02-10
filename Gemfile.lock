@@ -1,0 +1,23 @@
+PATH
+  remote: .
+  specs:
+    supermodel (0.1.4)
+      activemodel (~> 3.0.0)
+
+GEM
+  remote: http://rubygems.org/
+  specs:
+    activemodel (3.0.4)
+      activesupport (= 3.0.4)
+      builder (~> 2.1.2)
+      i18n (~> 0.4)
+    activesupport (3.0.4)
+    builder (2.1.2)
+    i18n (0.5.0)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  activemodel (~> 3.0.0)
+  supermodel!
