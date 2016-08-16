@@ -1,23 +1,27 @@
 PATH
   remote: .
   specs:
-    supermodel (0.1.4)
-      activemodel (~> 3.0.0)
+    csun-student-affairs-supermodel (0.1.6)
+      activemodel (~> 3.2.1)
 
 GEM
   remote: http://rubygems.org/
   specs:
-    activemodel (3.0.4)
-      activesupport (= 3.0.4)
-      builder (~> 2.1.2)
-      i18n (~> 0.4)
-    activesupport (3.0.4)
-    builder (2.1.2)
-    i18n (0.5.0)
+    activemodel (3.2.22.4)
+      activesupport (= 3.2.22.4)
+      builder (~> 3.0.0)
+    activesupport (3.2.22.4)
+      i18n (~> 0.6, >= 0.6.4)
+      multi_json (~> 1.0)
+    builder (3.0.4)
+    i18n (0.7.0)
+    multi_json (1.12.1)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
-  activemodel (~> 3.0.0)
-  supermodel!
+  csun-student-affairs-supermodel!
+
+BUNDLED WITH
+   1.12.5
