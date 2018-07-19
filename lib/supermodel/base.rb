@@ -1,10 +1,14 @@
 module SuperModel
   class Base    
-    class_inheritable_array :known_attributes
+    class_attribute :known_attributes
     self.known_attributes = []
     
     class << self
-      attr_accessor_with_default(:primary_key, 'id') #:nodoc:
+      attr_accessor(:primary_key) #:nodoc:
+      
+      def primary_key
+        @primary_key ||= 'id'
+      end
       
       def collection(&block)
         @collection ||= Class.new(Array)
@@ -13,7 +17,7 @@ module SuperModel
       end
 
       def attributes(*attributes)
-        self.known_attributes += attributes.map(&:to_s)
+        self.known_attributes |= attributes.map(&:to_s)
       end
       
       def records
@@ -50,6 +54,19 @@ module SuperModel
         item = records.values[-1]
         item && item.dup
       end
+
+      def where(options)
+        items = records.values.select do |r|
+          options.all? do |k, v|
+            if v.is_a?(Enumerable)
+              v.include?(r.send(k))
+            else
+              r.send(k) == v
+            end
+          end
+        end
+        collection.new(items.deep_dup)
+      end
       
       def exists?(id)
         records.has_key?(id)
@@ -76,7 +93,7 @@ module SuperModel
       end
       
       # Removes all records and executes 
-      # destory callbacks.
+      # destroy callbacks.
       def destroy_all
         all.each {|r| r.destroy }
       end
@@ -120,7 +137,7 @@ module SuperModel
     attr_writer   :new_record
     
     def known_attributes
-      self.class.known_attributes + self.attributes.keys.map(&:to_s)
+      self.class.known_attributes | self.attributes.keys.map(&:to_s)
     end
     
     def initialize(attributes = {})
